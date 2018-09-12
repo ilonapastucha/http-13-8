@@ -16,10 +16,12 @@ server.on('request', function (request, response) {
     });
   } else {
     fs.readFile('./error.jpg', 'binary', function (err, data) {
-    response.statusCode = 404;
-	response.writeHead(200, {'Content-Type':'image/jpg'});
-    response.write(data, 'binary');
-    response.end();
+      response.statusCode = 404;
+      response.writeHead(200, {
+        'Content-Type': 'image/jpg'
+      });
+      response.write(data, 'binary');
+      response.end();
     });
   }
 });
